@@ -88,12 +88,20 @@
     "parking": false
   },
 {
-  "name": "The Cue Academy",
-  "description": "Modern pool and snooker club with 6 billiard tables.",
-  "address": "3 O'Carroll Street, Tullamore, Co. Offaly, Ireland",
-  "coords": [53.274439, -7.488159],
-  "category": "pool",
-  "parking": true
-}
+    "name": "The Dark Horse Bar & Kitchen",
+    "description": "Gastropub with live sports and 4 Supreme tables upstairs.",
+    "address": "18 Sean Costello St, Athlone, Co. Westmeath, N37 D624, Ireland",
+    "coords": [53.4232, -7.9327],
+    "category": "pub",
+    "parking": false
+  },
+  {
+    "name": "The Cue Academy",
+    "description": "Modern pool hall with 5 Supreme competition tables.",
+    "address": "3 O'Carroll Street, Tullamore, Co. Offaly, Ireland",
+    "coords": [53.274439, -7.488159],
+    "category": "pool",
+    "parking": true
+  }
 
 ]
