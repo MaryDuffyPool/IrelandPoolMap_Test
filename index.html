@@ -74,18 +74,15 @@
     attribution: '© OpenStreetMap contributors'
   }).addTo(map);
 
-  const poolHalls = [
-    <script>
-  const map = L.map('map').setView([53.4129, -8.2439], 7);
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-  }).addTo(map);
-
   let markers = [];
 
   fetch('ireland_pool_halls.json')
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Failed to load JSON: ${response.status}`);
+      }
+      return response.json();
+    })
     .then(poolHalls => {
       markers = poolHalls.map(hall => {
         const marker = L.marker(hall.coords)
@@ -95,10 +92,13 @@
         return marker;
       });
 
-      // Enable filtering after markers are loaded
+      // Enable filtering after markers load
       document.getElementById('search-input').addEventListener('input', filterMarkers);
       document.getElementById('category-select').addEventListener('change', filterMarkers);
       document.getElementById('parking-checkbox').addEventListener('change', filterMarkers);
+    })
+    .catch(error => {
+      console.error('Error loading JSON:', error);
     });
 
   function filterMarkers() {
@@ -120,41 +120,3 @@
     });
   }
 </script>
-];
-
-  const markers = [];
-
-  poolHalls.forEach(hall => {
-    const marker = L.marker(hall.coords)
-      .bindPopup(`<strong>${hall.name}</strong><br>${hall.description}<br><em>${hall.address}</em><br>🚗 Parking: ${hall.parking ? 'Yes' : 'No'}`)
-      .addTo(map);
-    marker.hallData = hall;
-    markers.push(marker);
-  });
-
-  function filterMarkers() {
-    const query = document.getElementById('search-input').value.toLowerCase();
-    const selectedCategory = document.getElementById('category-select').value;
-    const showParkingOnly = document.getElementById('parking-checkbox').checked;
-
-    markers.forEach(marker => {
-      const { name, category, parking } = marker.hallData;
-      const matchesSearch = name.toLowerCase().includes(query);
-      const matchesCategory = selectedCategory === 'all' || category === selectedCategory;
-      const matchesParking = !showParkingOnly || parking;
-
-      if (matchesSearch && matchesCategory && matchesParking) {
-        marker.addTo(map);
-      } else {
-        map.removeLayer(marker);
-      }
-    });
-  }
-
-  document.getElementById('search-input').addEventListener('input', filterMarkers);
-  document.getElementById('category-select').addEventListener('change', filterMarkers);
-  document.getElementById('parking-checkbox').addEventListener('change', filterMarkers);
-</script>
-
-</body>
-</html>
