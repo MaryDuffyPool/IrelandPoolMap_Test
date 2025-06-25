@@ -32,18 +32,7 @@
     "category": "snooker",
     "parking": false
   },
-  {
-    "name": "Breakers Snooker & Pool Club",
-    "coords": [
-      53.2707,
-      -9.0568
-    ],
-    "description": "Popular club in Galway for both snooker and pool.",
-    "address": "Galway City",
-    "category": "pool",
-    "parking": true
-  },
-  {
+    {
     "name": "Ennis Snooker & Pool Club",
     "coords": [
       52.8463,
@@ -87,7 +76,7 @@
     "category": "snooker",
     "parking": false
   },
-{
+  {
     "name": "The Dark Horse Bar & Kitchen",
     "description": "Gastropub with live sports and 4 Supreme tables upstairs.",
     "address": "18 Sean Costello St, Athlone, Co. Westmeath, N37 D624, Ireland",
@@ -102,6 +91,173 @@
     "coords": [53.274439, -7.488159],
     "category": "pool",
     "parking": true
+  },
+  {
+    "name": "Owenie's Bar",
+    "description": "Traditional bar with a pool table in Dungloe.",
+    "address": "Dungloe, Co. Donegal, Ireland",
+    "coords": [54.9518, -8.3594],
+    "category": "pub",
+    "parking": true
+  },
+  {
+    "name": "McGuigan's Bar",
+    "description": "Bar with 3 pool tables, lively atmosphere.",
+    "address": "Stranorlar, Co. Donegal, Ireland",
+    "coords": [54.8033, -7.7824],
+    "category": "pub",
+    "parking": true
+  },
+  {
+    "name": "Donegal Pool Association @ CYMS",
+    "description": "Home of the Donegal Pool Association, multiple tables and tournaments.",
+    "address": "CYMS Club, Letterkenny, Co. Donegal, Ireland",
+    "coords": [54.9522, -7.7306],
+    "category": "pool",
+    "parking": true
+  },
+  {
+    "name": "Teac Bhillies",
+    "description": "Local bar with pool table, lively weekends.",
+    "address": "Gortahork, Co. Donegal, Ireland",
+    "coords": [55.1005, -8.1373],
+    "category": "pub",
+    "parking": true
+  },
+  {
+    "name": "Corcorans Bar",
+    "description": "Carlow bar with pool table and outdoor seating.",
+    "address": "Carlow, Ireland",
+    "coords": [52.8365, -6.9321],
+    "category": "pub",
+    "parking": false
+  },
+  {
+    "name": "Templemore Snooker Club",
+    "description": "Community snooker club with multiple tables.",
+    "address": "Templemore, Co. Tipperary, Ireland",
+    "coords": [52.7937, -7.8321],
+    "category": "snooker",
+    "parking": true
+  },
+  {
+    "name": "Portlaoise Pool Hall",
+    "description": "Central pool hall in Laois with several Supreme tables.",
+    "address": "Portlaoise, Co. Laois, R32 KT9D, Ireland",
+    "coords": [53.0339, -7.2976],
+    "category": "pool",
+    "parking": true
+  },
+  {
+    "name": "MJ O'Connor Bar",
+    "description": "Classic pub in Leitrim with a pool table.",
+    "address": "Main St, Carrick-on-Shannon, Leitrim, N41 KX81, Ireland",
+    "coords": [53.9451, -8.0892],
+    "category": "pub",
+    "parking": false
+  },
+  {
+    "name": "The Barrelstore",
+    "description": "Trendy bar in Carrick-on-Shannon with pool table and live music.",
+    "address": "Carrick-on-Shannon, Co. Leitrim, Ireland",
+    "coords": [53.9458, -8.0896],
+    "category": "pub",
+    "parking": false
+  },
+  {
+    "name": "Dog & Duck",
+    "description": "Glasson pub with a pool table and beer garden.",
+    "address": "Glasson, Athlone, Co. Westmeath, Ireland",
+    "coords": [53.4712, -7.8495],
+    "category": "pub",
+    "parking": true
+  },
+  {
+    "name": "Gleeson's Bar",
+    "description": "Bar in Sixmilebridge with a pool table and friendly locals.",
+    "address": "Frederick Square, Leverstown, Sixmilebridge, Co. Clare, Ireland",
+    "coords": [52.7495, -8.7811],
+    "category": "pub",
+    "parking": true
+  },
+  {
+    "name": "D15 Cuesports",
+    "description": "Modern snooker and pool club with tournament tables.",
+    "address": "Blanchardstown, Dublin 15, Ireland",
+    "coords": [53.3904, -6.3986],
+    "category": "snooker",
+    "parking": true
+  },
+  {
+    "name": "Ball Breakers",
+    "description": "Lively pool and snooker venue with multiple tables and a sports bar atmosphere.",
+    "address": "9 St Augustine St, Galway, H91 WY6P, Ireland",
+    "coords": [53.2713, -9.0562],
+    "category": "pool",
+    "parking": false
+  },
+  {
+    "name": "Munster Cuesports",
+    "description": "Snooker and pool club with tournament-standard tables.",
+    "address": "6 Broad Street, Limerick, V94 PK24, Ireland",
+    "coords": [52.6644, -8.6243],
+    "category": "pool",
+    "parking": true
+  },
+  {
+    "name": "J'Macs Pool Club",
+    "description": "Dedicated pool venue with Supreme tables and league play.",
+    "address": "Trimgate Street, Navan, Co. Meath, Ireland",
+    "coords": [53.6534, -6.6874],
+    "category": "pool",
+    "parking": false
+  },
+  {
+    "name": "Sharkz Pool Hall",
+    "description": "Modern pool club in Newbridge with Supreme tables and refreshments.",
+    "address": "Cutlery Rd, Newbridge, Co. Kildare, Ireland",
+    "coords": [53.1808, -6.8004],
+    "category": "pool",
+    "parking": true
+  },
+  {
+    "name": "Woodpecker Sports Bar",
+    "description": "Ashford bar with sports, food, and pool facilities.",
+    "address": "Ashford, Co. Wicklow, Ireland",
+    "coords": [53.0163, -6.1042],
+    "category": "pub",
+    "parking": true
+  },
+  {
+    "name": "Furlongs Bar & Lounge",
+    "description": "Bar with pool table and live music nights.",
+    "address": "Main Street, Clonroche, Wexford, Y21 DP62, Ireland",
+    "coords": [52.4605, -6.7463],
+    "category": "pub",
+    "parking": true
+  },
+  {
+    "name": "Billy Kellys Bar",
+    "description": "Classic Irish pub with pool table and community feel.",
+    "address": "Wellingtonbridge, Wexford, Y35 A4W8, Ireland",
+    "coords": [52.2623, -6.7426],
+    "category": "pub",
+    "parking": true
+  },
+  {
+    "name": "Sooners Bar",
+    "description": "Lively pub with pool and darts in New Ross.",
+    "address": "5 Quay Street, New Ross, Wexford, Y34 KX36, Ireland",
+    "coords": [52.3916, -6.9494],
+    "category": "pub",
+    "parking": false
+  },
+  {
+    "name": "Red Cove Inn",
+    "description": "Casual bar in Mahon with pool table and regular live music.",
+    "address": "Red Cove Inn, Avenue De Rennes, Mahon, Cork, Ireland",
+    "coords": [51.8867, -8.4066],
+    "category": "pub",
+    "parking": true
   }
-
 ]
