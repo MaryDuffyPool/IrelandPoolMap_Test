@@ -86,5 +86,14 @@
     "address": "Howth Rd, Dublin 5",
     "category": "snooker",
     "parking": false
-  }
+  },
+{
+  "name": "The Cue Academy",
+  "description": "Modern pool and snooker club with 6 billiard tables.",
+  "address": "3 O'Carroll Street, Tullamore, Co. Offaly, Ireland",
+  "coords": [53.274439, -7.488159],
+  "category": "pool",
+  "parking": true
+}
+
 ]
