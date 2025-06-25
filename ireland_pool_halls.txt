@@ -1,0 +1,90 @@
+[
+  {
+    "name": "The Back Page",
+    "coords": [
+      53.3584,
+      -6.2708
+    ],
+    "description": "Pub in Phibsborough with pool tables.",
+    "address": "199 Phibsborough Rd, Dublin",
+    "category": "pub",
+    "parking": false
+  },
+  {
+    "name": "Classic Snooker Club",
+    "coords": [
+      53.3853,
+      -6.3015
+    ],
+    "description": "Dedicated snooker hall with 12 tables.",
+    "address": "Jamestown Business Park, Finglas, Dublin",
+    "category": "snooker",
+    "parking": false
+  },
+  {
+    "name": "Ken Doherty Snooker Academy",
+    "coords": [
+      53.3115,
+      -6.2825
+    ],
+    "description": "BYOB snooker and pool club.",
+    "address": "Terenure, Dublin",
+    "category": "snooker",
+    "parking": false
+  },
+  {
+    "name": "Breakers Snooker & Pool Club",
+    "coords": [
+      53.2707,
+      -9.0568
+    ],
+    "description": "Popular club in Galway for both snooker and pool.",
+    "address": "Galway City",
+    "category": "pool",
+    "parking": true
+  },
+  {
+    "name": "Ennis Snooker & Pool Club",
+    "coords": [
+      52.8463,
+      -8.9807
+    ],
+    "description": "5 snooker + 3 pool tables, \u20ac10/hr.",
+    "address": "Market Street, Ennis, Clare",
+    "category": "snooker",
+    "parking": true
+  },
+  {
+    "name": "Norris's Snooker Club",
+    "coords": [
+      52.2593,
+      -7.1111
+    ],
+    "description": "2 tables upstairs in a relaxed environment.",
+    "address": "Castle Street, Waterford",
+    "category": "snooker",
+    "parking": false
+  },
+  {
+    "name": "Mallow Snooker Club",
+    "coords": [
+      52.1381,
+      -8.6526
+    ],
+    "description": "Well-maintained club in Cork County.",
+    "address": "Mallow, County Cork",
+    "category": "snooker",
+    "parking": true
+  },
+  {
+    "name": "Joey\u2019s Snooker Club",
+    "coords": [
+      53.3776,
+      -6.1936
+    ],
+    "description": "Snooker venue near Harmonstown DART station.",
+    "address": "Howth Rd, Dublin 5",
+    "category": "snooker",
+    "parking": false
+  }
+]
