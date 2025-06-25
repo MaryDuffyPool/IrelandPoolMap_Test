@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Pool Halls in Ireland</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    #map {
+      height: 100%;
+      width: 100%;
+    }
+
+    #controls {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    input, select, label {
+      font-size: 1em;
+      padding: 8px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    @media (min-width: 600px) {
+      #controls {
+        width: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div id="controls">
+  <input type="text" id="search-input" placeholder="Search by name..." />
+  <select id="category-select">
+    <option value="all">All Categories</option>
+    <option value="pool">Pool Only 🎱</option>
+    <option value="snooker">Snooker Only 🔴</option>
+    <option value="pub">Pub + Pool 🍻</option>
+  </select>
+  <label>
+    <input type="checkbox" id="parking-checkbox" />
+    Show only venues with parking 🚗
+  </label>
+</div>
+
+<div id="map"></div>
+
+<script>
+  const map = L.map('map').setView([53.4129, -8.2439], 7);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(map);
+
+  const poolHalls = [
+    {
+      name: "The Hideout",
+      coords: [53.3395, -6.2620],
+      description: "BYOB pool hall on South William Street.",
+      address: "49 William St S, Dublin",
+      category: "pool",
+      parking: false
+    },
+    {
+      name: "Fairview Snooker Club",
+      coords: [53.3648, -6.2299],
+      description: "Classic snooker and pool venue.",
+      address: "2A Fairview, Dublin",
+      category: "snooker",
+      parking: true
+    },
+    {
+      name: "Cross Guns Snooker Club",
+      coords: [53.3565, -6.2683],
+      description: "Historic snooker hall in Phibsborough.",
+      address: "17 Cross Guns Bridge, Dublin",
+      category: "snooker",
+      parking: false
+    },
+    {
+      name: "House Dublin",
+      coords: [53.3331, -6.2569],
+      description: "Stylish cocktail bar with pool tables.",
+      address: "27 Lower Leeson St, Dublin",
+      category: "pub",
+      parking: true
+    }
+  ];
+
+  const markers = [];
+
+  poolHalls.forEach(hall => {
+    const marker = L.marker(hall.coords)
+      .bindPopup(`<strong>${hall.name}</strong><br>${hall.description}<br><em>${hall.address}</em><br>🚗 Parking: ${hall.parking ? 'Yes' : 'No'}`)
+      .addTo(map);
+    marker.hallData = hall;
+    markers.push(marker);
+  });
+
+  function filterMarkers() {
+    const query = document.getElementById('search-input').value.toLowerCase();
+    const selectedCategory = document.getElementById('category-select').value;
+    const showParkingOnly = document.getElementById('parking-checkbox').checked;
+
+    markers.forEach(marker => {
+      const { name, category, parking } = marker.hallData;
+      const matchesSearch = name.toLowerCase().includes(query);
+      const matchesCategory = selectedCategory === 'all' || category === selectedCategory;
+      const matchesParking = !showParkingOnly || parking;
+
+      if (matchesSearch && matchesCategory && matchesParking) {
+        marker.addTo(map);
+      } else {
+        map.removeLayer(marker);
+      }
+    });
+  }
+
+  document.getElementById('search-input').addEventListener('input', filterMarkers);
+  document.getElementById('category-select').addEventListener('change', filterMarkers);
+  document.getElementById('parking-checkbox').addEventListener('change', filterMarkers);
+</script>
+
+</body>
+</html>
