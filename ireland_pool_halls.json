@@ -203,7 +203,7 @@
     "name": "Billy Kellys Bar",
     "description": "Classic Irish pub with pool table and community feel.",
     "address": "The Faythe, Wexford, Y35 A4W8, Ireland",
-    "coords": [52.3265956, -6.4674744],
+    "coords": [52.3326, -6.4609],
     "category": "pub",
     "parking": true
   },
@@ -259,7 +259,7 @@
   "name": "Mary Jo's Bar",
   "description": "Traditional Wexford pub with a pool table, local charm and a welcoming atmosphere.",
   "address": "Faythe, Wexford, Co. Wexford, Ireland",
-  "coords": [52.3443, -6.4579],
+  "coords": [52.3323, -6.4649],
   "category": "pub",
   "parking": true
   },
@@ -269,6 +269,14 @@
   "address": "The Spot, Naomh Éanna, Clonatin Lower, Gorey, Co. Wexford, Y25 P7K7, Ireland",
   "coords": [52.6809, -6.2749],
   "category": "pool",
+  "parking": true
+  },
+  {
+  "name": "The Railway Inn",
+  "description": "Family‑friendly bar with pool hall, beer garden, AirBnB rooms and spacious parking.",
+  "address": "Beckville, Baldwinstown, Co. Wexford, Y35 R859, Ireland",
+  "coords": [52.2406, -6.5767],
+  "category": "pub",
   "parking": true
   },
   {
