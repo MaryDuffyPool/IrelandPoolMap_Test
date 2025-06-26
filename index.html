@@ -4,9 +4,15 @@
   <meta charset="utf-8" />
   <title>Pool Halls in Ireland</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
+  <!-- Leaflet core -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Leaflet MarkerCluster -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
   <style>
     html, body {
@@ -14,12 +20,10 @@
       margin: 0;
       font-family: sans-serif;
     }
-
     #map {
       height: 100%;
       width: 100%;
     }
-
     #controls {
       position: absolute;
       top: 10px;
@@ -34,14 +38,12 @@
       flex-direction: column;
       gap: 8px;
     }
-
     input, select, label {
       font-size: 1em;
       padding: 8px;
       width: 100%;
       box-sizing: border-box;
     }
-
     @media (min-width: 600px) {
       #controls {
         width: 280px;
@@ -74,6 +76,7 @@
     attribution: '© OpenStreetMap contributors'
   }).addTo(map);
 
+  const markerCluster = L.markerClusterGroup();
   let markers = [];
 
   fetch('ireland_pool_halls.json?cacheBust=' + Date.now())
@@ -86,11 +89,12 @@
     .then(poolHalls => {
       markers = poolHalls.map(hall => {
         const marker = L.marker(hall.coords)
-          .bindPopup(`<strong>${hall.name}</strong><br>${hall.description}<br><em>${hall.address}</em><br>🚗 Parking: ${hall.parking ? 'Yes' : 'No'}`)
-          .addTo(map);
+          .bindPopup(`<strong>${hall.name}</strong><br>${hall.description}<br><em>${hall.address}</em><br>🚗 Parking: ${hall.parking ? 'Yes' : 'No'}`);
         marker.hallData = hall;
+        markerCluster.addLayer(marker);
         return marker;
       });
+      map.addLayer(markerCluster);
 
       // Enable filtering after markers load
       document.getElementById('search-input').addEventListener('input', filterMarkers);
@@ -106,6 +110,8 @@
     const selectedCategory = document.getElementById('category-select').value;
     const showParkingOnly = document.getElementById('parking-checkbox').checked;
 
+    markerCluster.clearLayers();
+
     markers.forEach(marker => {
       const { name, category, parking } = marker.hallData;
       const matchesSearch = name.toLowerCase().includes(query);
@@ -113,10 +119,11 @@
       const matchesParking = !showParkingOnly || parking;
 
       if (matchesSearch && matchesCategory && matchesParking) {
-        marker.addTo(map);
-      } else {
-        map.removeLayer(marker);
+        markerCluster.addLayer(marker);
       }
     });
   }
 </script>
+
+</body>
+</html>
