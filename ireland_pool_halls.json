@@ -230,5 +230,45 @@
     "coords": [51.8867, -8.4066],
     "category": "pub",
     "parking": true
+  },
+  {
+    "name": "Smiddy's Bar",
+    "description": "Casual pub in Mullingar with a pool table and regular local crowd.",
+    "address": "Austin Friars Street, Mullingar, Co. Westmeath, Ireland",
+    "coords": [53.5248, -7.3402],
+    "category": "pub",
+    "parking": false
+  },
+  {
+    "name": "Bridge Bar",
+    "description": "Cosy riverside pub with pool table, drinks and traditional charm.",
+    "address": "Dominick Street, Mullingar, Co. Westmeath, Ireland",
+    "coords": [53.5250, -7.3430],
+    "category": "pub",
+    "parking": false
+  },
+  {
+    "name": "Clarke's Bar",
+    "description": "Popular local bar with friendly service and a pool table.",
+    "address": "Patrick Street, Mullingar, Co. Westmeath, Ireland",
+    "coords": [53.5261, -7.3432],
+    "category": "pub",
+    "parking": false
+  },
+  {
+    "name": "Danny Byrnes Bar",
+    "description": "Lively Mullingar pub with beer garden, food, live music and a pool table.",
+    "address": "Pearse Street, Mullingar, Co. Westmeath, Ireland",
+    "coords": [53.5241, -7.3418],
+    "category": "pub",
+    "parking": false
+  },
+  {
+    "name": "Kerrigan's Bar",
+    "description": "Lively traditional pub in Mullingar known for sports screenings and its pool table.",
+    "address": "Harbour Street, Mullingar, Co. Westmeath, Ireland",
+    "coords": [53.5243, -7.3386],
+    "category": "pub",
+    "parking": false
   }
 ]
