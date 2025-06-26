@@ -194,8 +194,8 @@
   {
     "name": "Furlongs Bar & Lounge",
     "description": "Bar with pool table and live music nights.",
-    "address": "Main Street, Clonroche, Wexford, Y21 DP62, Ireland",
-    "coords": [52.4605, -6.7463],
+    "address": "Curracloe, Wexford, Y21 DP62, Ireland",
+    "coords": [52.3928375, -6.3910917],
     "category": "pub",
     "parking": true
   },
@@ -203,7 +203,7 @@
     "name": "Billy Kellys Bar",
     "description": "Classic Irish pub with pool table and community feel.",
     "address": "The Faythe, Wexford, Y35 A4W8, Ireland",
-    "coords": [52.2623, -6.7426],
+    "coords": [52.3265956, -6.4674744],
     "category": "pub",
     "parking": true
   },
