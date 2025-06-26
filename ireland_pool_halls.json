@@ -203,7 +203,7 @@
     "name": "Billy Kellys Bar",
     "description": "Classic Irish pub with pool table and community feel.",
     "address": "The Faythe, Wexford, Y35 A4W8, Ireland",
-    "coords": [52.3326, -6.4609],
+    "coords": [52.338639, -6.562823],
     "category": "pub",
     "parking": true
   },
@@ -217,7 +217,7 @@
   },
   {
     "name": "The Lantern",
-    "coords": [53.2734, -7.4890],
+    "coords": [52.338639, -6.562823],
     "description": "Long-established Tullamore pub on Kilbride Street, part of a mixed-use venue with bar, food, and residential units.",
     "address": "Kilbride Street, Tullamore, Co. Offaly, Ireland",
     "category": "pub",
@@ -259,7 +259,7 @@
   "name": "Mary Jo's Bar",
   "description": "Traditional Wexford pub with a pool table, local charm and a welcoming atmosphere.",
   "address": "Faythe, Wexford, Co. Wexford, Ireland",
-  "coords": [52.3303, -6.4594],
+  "coords": [52.338639, -6.562823]
   "category": "pub",
   "parking": true
   },
