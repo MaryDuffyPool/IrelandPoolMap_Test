@@ -208,12 +208,12 @@
     "parking": true
   },
   {
-    "name": "Sooners Bar",
-    "description": "Lively pub with pool and darts.",
-    "address": "Cassagh, Wexford, Y34 KX36, Ireland",
-    "coords": [52.3927, -6.9511],
-    "category": "pub",
-    "parking": true
+  "name": "Morriseys Public House aka Sooners",
+  "description": "Friendly pub in Cassagh, New Ross known for a welcoming atmosphere and occasional pool competitions.",
+  "address": "Cassagh, New Ross, Co. Wexford, Y34 KX36, Ireland",
+  "coords": [52.3703, -6.8374],
+  "category": "pub",
+  "parking": true
   },
   {
     "name": "The Lantern",
