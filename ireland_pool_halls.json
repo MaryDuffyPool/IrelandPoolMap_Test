@@ -259,7 +259,7 @@
   "name": "Mary Jo's Bar",
   "description": "Traditional Wexford pub with a pool table, local charm and a welcoming atmosphere.",
   "address": "Faythe, Wexford, Co. Wexford, Ireland",
-  "coords": [52.3323, -6.4649],
+  "coords": [52.3303, -6.4594],
   "category": "pub",
   "parking": true
   },
@@ -275,7 +275,7 @@
   "name": "The Railway Inn",
   "description": "Family‑friendly bar with pool hall, beer garden, AirBnB rooms and spacious parking.",
   "address": "Beckville, Baldwinstown, Co. Wexford, Y35 R859, Ireland",
-  "coords": [52.2406, -6.5767],
+  "coords": [52.1876, -6.6289],
   "category": "pub",
   "parking": true
   },
