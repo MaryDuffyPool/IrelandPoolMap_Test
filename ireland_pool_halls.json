@@ -1,80 +1,27 @@
 [
+   {
+    "name": "Castle Cue Club Mayo",
+    "description": "Dedicated cue sports club in Castlebar offering pool and snooker leagues, tournaments, and social play.",
+    "address": "Castlebar, Co. Mayo, Ireland",
+    "coords": [53.8569, -9.2956],
+    "category": "cue sports club",
+    "parking": true
+  },
   {
-    "name": "The Back Page",
-    "coords": [
-      53.3584,
-      -6.2708
-    ],
-    "description": "Pub in Phibsborough with pool tables.",
-    "address": "199 Phibsborough Rd, Dublin",
+    "name": "Giltraps Pub",
+    "description": "Historic 17th‑century family‑run pub with open fires, award‑winning atmosphere, stone‑baked pizzas, glamping & townhouse next door.",
+    "address": "Main Street, Kinnitty, Birr, Co. Offaly, Ireland",
+    "coords": [53.1285, -7.7411],
     "category": "pub",
-    "parking": false
-  },
-  {
-    "name": "Classic Snooker Club",
-    "coords": [
-      53.3853,
-      -6.3015
-    ],
-    "description": "Dedicated snooker hall with 12 tables.",
-    "address": "Jamestown Business Park, Finglas, Dublin",
-    "category": "snooker",
-    "parking": false
-  },
-  {
-    "name": "Ken Doherty Snooker Academy",
-    "coords": [
-      53.3115,
-      -6.2825
-    ],
-    "description": "BYOB snooker and pool club.",
-    "address": "Terenure, Dublin",
-    "category": "snooker",
-    "parking": false
-  },
-    {
-    "name": "Ennis Snooker & Pool Club",
-    "coords": [
-      52.8463,
-      -8.9807
-    ],
-    "description": "5 snooker + 3 pool tables, \u20ac10/hr.",
-    "address": "Market Street, Ennis, Clare",
-    "category": "snooker",
     "parking": true
   },
   {
-    "name": "Norris's Snooker Club",
-    "coords": [
-      52.2593,
-      -7.1111
-    ],
-    "description": "2 tables upstairs in a relaxed environment.",
-    "address": "Castle Street, Waterford",
-    "category": "snooker",
-    "parking": false
-  },
-  {
-    "name": "Mallow Snooker Club",
-    "coords": [
-      52.1381,
-      -8.6526
-    ],
-    "description": "Well-maintained club in Cork County.",
-    "address": "Mallow, County Cork",
-    "category": "snooker",
+    "name": "The Thatch",
+    "description": "Traditional thatched‑roof pub and music venue beside the Grand Canal, offering live music, B&B, bar and restaurant.",
+    "address": "Loughroe, Rahan, Co. Offaly, Ireland",
+    "coords": [53.2433, -7.4200],
+    "category": "pub & music venue",
     "parking": true
-  },
-  {
-    "name": "Joey\u2019s Snooker Club",
-    "coords": [
-      53.3776,
-      -6.1936
-    ],
-    "description": "Snooker venue near Harmonstown DART station.",
-    "address": "Howth Rd, Dublin 5",
-    "category": "snooker",
-    "parking": false
   },
   {
     "name": "The Dark Horse Bar & Kitchen",
@@ -82,11 +29,11 @@
     "address": "18 Sean Costello St, Athlone, Co. Westmeath, N37 D624, Ireland",
     "coords": [53.4232, -7.9327],
     "category": "pub",
-    "parking": false
+    "parking": true
   },
   {
     "name": "The Cue Academy",
-    "description": "Modern pool hall with 5 Supreme competition tables.",
+    "description": "Modern pool hall with 5 Supreme tables and BYOB.",
     "address": "3 O'Carroll Street, Tullamore, Co. Offaly, Ireland",
     "coords": [53.274439, -7.488159],
     "category": "pool",
@@ -107,6 +54,22 @@
     "coords": [54.8033, -7.7824],
     "category": "pub",
     "parking": true
+  },
+  {
+    "name": "The Pool Hut Academy",
+    "description": "Pool academy with professional coaching, weekly tournaments, and quality tables.",
+    "address": "Ballyshannon, Co. Donegal, Ireland",
+    "coords": [54.5029882, -8.1920416],
+    "category": "pool academy",
+    "parking": true
+  },
+  {
+  "name": "Hunter's Sports Bar",
+  "description": "American‑style sports bar & grill with free pool, darts, arcade downstairs, 18 screens for live sport, cocktails and pub grub.",
+  "address": "O'Connell St, Limerick City, Co. Limerick, Ireland",
+  "coords": [52.6570, -8.6242],
+  "category": "sports bar",
+  "parking": false
   },
   {
     "name": "Donegal Pool Association @ CYMS",
@@ -142,7 +105,7 @@
   },
   {
     "name": "Portlaoise Pool Hall",
-    "description": "Central pool hall in Laois with several Supreme tables.",
+    "description": "Central pool hall in Laois with several Supreme tables. Located on first floor, no lift.",
     "address": "Portlaoise, Co. Laois, R32 KT9D, Ireland",
     "coords": [53.0339, -7.2976],
     "category": "pool",
@@ -165,8 +128,8 @@
     "parking": false
   },
   {
-    "name": "Dog & Duck",
-    "description": "Glasson pub with a pool table and beer garden.",
+    "name": "Dog & Duck Pub",
+    "description": "Glasson gastropub with 1 pool table and beer garden. Beautiful meals available",
     "address": "Glasson, Athlone, Co. Westmeath, Ireland",
     "coords": [53.4712, -7.8495],
     "category": "pub",
@@ -191,10 +154,10 @@
   {
     "name": "Ball Breakers",
     "description": "Lively pool and snooker venue with multiple tables and a sports bar atmosphere.",
-    "address": "9 St Augustine St, Galway, H91 WY6P, Ireland",
+    "address": "13C Ballybrit Heights, Galway, H91 WY6P, Ireland",
     "coords": [53.2713, -9.0562],
     "category": "pool",
-    "parking": false
+    "parking": true
   },
   {
     "name": "Munster Cuesports",
@@ -206,8 +169,8 @@
   },
   {
     "name": "J'Macs Pool Club",
-    "description": "Dedicated pool venue with Supreme tables and league play.",
-    "address": "Trimgate Street, Navan, Co. Meath, Ireland",
+    "description": "Dedicated pool venue with 16 Supreme tables, 2 Snooker tables and a Chinese Pool Table. Situated within a complex with cinema and arcade.",
+    "address": "Metges Lane, Navan, Co. Meath, Ireland",
     "coords": [53.6534, -6.6874],
     "category": "pool",
     "parking": false
@@ -215,10 +178,10 @@
   {
     "name": "Sharkz Pool Hall",
     "description": "Modern pool club in Newbridge with Supreme tables and refreshments.",
-    "address": "Cutlery Rd, Newbridge, Co. Kildare, Ireland",
+    "address": "Henry Street, Newbridge, Co. Kildare, Ireland",
     "coords": [53.1808, -6.8004],
     "category": "pool",
-    "parking": true
+    "parking": false
   },
   {
     "name": "Woodpecker Sports Bar",
@@ -239,16 +202,24 @@
   {
     "name": "Billy Kellys Bar",
     "description": "Classic Irish pub with pool table and community feel.",
-    "address": "Wellingtonbridge, Wexford, Y35 A4W8, Ireland",
+    "address": "The Faythe, Wexford, Y35 A4W8, Ireland",
     "coords": [52.2623, -6.7426],
     "category": "pub",
     "parking": true
   },
   {
     "name": "Sooners Bar",
-    "description": "Lively pub with pool and darts in New Ross.",
-    "address": "5 Quay Street, New Ross, Wexford, Y34 KX36, Ireland",
+    "description": "Lively pub with pool and darts.",
+    "address": "Cassagh, Wexford, Y34 KX36, Ireland",
     "coords": [52.3916, -6.9494],
+    "category": "pub",
+    "parking": true
+  },
+  {
+    "name": "The Lantern",
+    "coords": [53.2733, -7.4890],
+    "description": "Long-established Tullamore pub on Kilbride Street, part of a mixed-use venue with bar, food, and residential units.",
+    "address": "Kilbride Street, Tullamore, Co. Offaly, Ireland",
     "category": "pub",
     "parking": false
   },
