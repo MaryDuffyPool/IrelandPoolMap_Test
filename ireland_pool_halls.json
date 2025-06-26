@@ -259,8 +259,16 @@
   "name": "Mary Jo's Bar",
   "description": "Traditional Wexford pub with a pool table, local charm and a welcoming atmosphere.",
   "address": "Faythe, Wexford, Co. Wexford, Ireland",
-  "coords": [52.2620, -6.7450],
+  "coords": [52.3285, -6.4607],
   "category": "pub",
+  "parking": true
+  },
+  {
+  "name": "The Spot",
+  "description": "Popular pool venue located at Naomh Éanna complex in Gorey, with modern tables and a relaxed atmosphere.",
+  "address": "The Spot, Naomh Éanna, Clonatin Lower, Gorey, Co. Wexford, Y25 P7K7, Ireland",
+  "coords": [52.6809, -6.2749],
+  "category": "pool",
   "parking": true
   },
   {
