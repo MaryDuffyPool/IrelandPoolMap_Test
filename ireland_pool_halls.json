@@ -259,7 +259,9 @@
   "name": "Mary Jo's Bar",
   "description": "Traditional Wexford pub with a pool table, local charm and a welcoming atmosphere.",
   "address": "Faythe, Wexford, Co. Wexford, Ireland",
-  "coords": [52.3285, -6.4607],
+  "coords": [52.36174, -6.47496],
+  "category": "pub",
+  "parking": true
   "category": "pub",
   "parking": true
   },
