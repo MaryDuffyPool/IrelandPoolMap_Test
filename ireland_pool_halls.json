@@ -211,7 +211,7 @@
     "name": "Sooners Bar",
     "description": "Lively pub with pool and darts.",
     "address": "Cassagh, Wexford, Y34 KX36, Ireland",
-    "coords": [52.3916, -6.9494],
+    "coords": [52.3927, -6.9511],
     "category": "pub",
     "parking": true
   },
@@ -254,6 +254,14 @@
     "coords": [53.5261, -7.3432],
     "category": "pub",
     "parking": false
+  },
+  {
+  "name": "Mary Jo's Bar",
+  "description": "Traditional Wexford pub with a pool table, local charm and a welcoming atmosphere.",
+  "address": "Faythe, Wexford, Co. Wexford, Ireland",
+  "coords": [52.2620, -6.7450],
+  "category": "pub",
+  "parking": true
   },
   {
     "name": "Danny Byrnes Bar",
