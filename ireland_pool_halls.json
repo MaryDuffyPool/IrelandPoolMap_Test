@@ -100,13 +100,16 @@
   },
   {
     "name": "Donegal Pool Association @ CYMS",
-    "description": "Home of the Donegal Pool Association, multiple tables and tournaments.",
+    "description": "Home of the Donegal Pool. 8 Snooker tables, 8 Supreme pool tables.",
     "address": "CYMS Club, Letterkenny, Co. Donegal, Ireland",
     "coords": [
       54.96695729423896,
       -7.746640600399851
     ],
-    "category": "pool",
+    "category": [
+      "pool",
+      "snooker"
+    ],
     "parking": true
   },
   {
@@ -221,8 +224,8 @@
   },
   {
     "name": "Munster Cuesports",
-    "description": "Snooker and pool club with tournament-standard tables.",
-    "address": "6 Broad Street, Limerick, V94 PK24, Ireland",
+    "description": "Pool club with 6 Supreme pool tables.",
+    "address": "Monaclinoe Industrial Estate, Ballysimon Road, Limerick, Ireland",
     "coords": [
       52.6537628028738,
       -8.58728357863582
@@ -305,7 +308,7 @@
     "description": "Long-established Tullamore pub on Kilbride Street, part of a mixed-use venue with bar, food, and residential units.",
     "address": "Kilbride Street, Tullamore, Co. Offaly, Ireland",
     "category": "pub",
-    "parking": false
+    "parking": true
   },
   {
     "name": "Red Cove Inn",
@@ -429,9 +432,9 @@
     "parking": false
   },
   {
-    "name": "Ryan\u2019s Bar",
-    "description": "Pub in Horseleap village, straddling the Westmeath\u2013Offaly border with a friendly community atmosphere and occasional pool competitions. 3 Supreme Pool tables and a large carpark out the back.",
-    "address": "Main Street, Horseleap, Co. Westmeath, N37 ED26, Ireland",
+    "name": "Paddy Ryans Bar",
+    "description": "Pub in Horseleap village, straddling the Westmeath\Offaly border with 3 Supreme Pool tables and a large carpark out the back.",
+    "address": "Main Street, Horseleap, Co. Westmeath, Ireland",
     "coords": [
       53.39277122183092,
       -7.581391902675065
@@ -441,14 +444,28 @@
   },
   {
     "name": "The Pool Knight Shack",
-    "description": "Pool venue inside Charthouse Business Centre offering modern tables and a relaxed atmosphere.",
+    "description": "Pool venue inside Charthouse Business Centre. 7 Supreme tables, 1 full size Pro Snooker table and 1 American Pro 9ft Table.",
     "address": "Charthouse Business Centre, Richmond Road, Fairview, Dublin D03, Ireland",
     "coords": [
       53.36671684071967,
       -6.246149062971745
     ],
     "category": "pool",
-    "parking": false
+    "parking": true
+  },
+  {
+    "name": "Drogheda Potters Snooker and Pool Hall",
+    "description": "8 Supreme Pool Tables and 6 Snooker Tables.",
+    "address": "East Drogheda, Drogheda, Co. Louth, A92 YX7N, Ireland",
+    "coords": [
+      53.36671684071967,
+      -6.246149062971745
+    ],
+    "category": [
+      "pool",
+      "snooker"
+    ],
+    "parking": true
   },
   {
     "name": "Laois Pool Clubhouse",
