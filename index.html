@@ -1,129 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Pool Halls in Ireland</title>
+  <meta charset="UTF-8" />
+  <title>Pool & Snooker Halls in Ireland</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Leaflet core -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-  <!-- Leaflet MarkerCluster -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
-  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-sA+e2atCf0t0iLS1g0w37v2DkGgkGgk1D2aEWX8H6DQ="
+    crossorigin=""
+  />
   <style>
     html, body {
-      height: 100%;
       margin: 0;
+      padding: 0;
+      height: 100%;
       font-family: sans-serif;
     }
     #map {
       height: 100%;
       width: 100%;
     }
-    #controls {
+    .filter {
       position: absolute;
       top: 10px;
       left: 10px;
-      right: 10px;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.95);
+      background: white;
       padding: 10px;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.2);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    input, select, label {
-      font-size: 1em;
-      padding: 8px;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    @media (min-width: 600px) {
-      #controls {
-        width: 280px;
-      }
+      border-radius: 5px;
+      z-index: 1000;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     }
   </style>
 </head>
 <body>
+  <div class="filter">
+    <label for="category">Filter by category:</label>
+    <select id="categoryFilter">
+      <option value="">All</option>
+      <!-- Categories will be dynamically inserted here -->
+    </select>
+  </div>
 
-<div id="controls">
-  <input type="text" id="search-input" placeholder="Search by name..." />
-  <select id="category-select">
-    <option value="all">All Categories</option>
-    <option value="pool">Pool Only 🎱</option>
-    <option value="snooker">Snooker Only 🔴</option>
-    <option value="pub">Snooker + Pool 🍻</option>
-  </select>
-  <label>
-    <input type="checkbox" id="parking-checkbox" />
-    Show only venues with parking 🚗
-  </label>
-</div>
+  <div id="map"></div>
 
-<div id="map"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-VuZ+f8Boe3yMWwQYo/EF04P6hi9ddHfWr1R2B8GkL2E="
+    crossorigin="">
+  </script>
 
-<script>
-  const map = L.map('map').setView([53.4129, -8.2439], 7);
+  <script>
+    let map = L.map('map').setView([53.5, -7.5], 7);
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-  }).addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
 
-  const markerCluster = L.markerClusterGroup();
-  let markers = [];
+    let markers = [];
 
-  fetch('ireland_pool_halls.json?cacheBust=' + Date.now())
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`Failed to load JSON: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then(poolHalls => {
-      markers = poolHalls.map(hall => {
-        const marker = L.marker(hall.coords)
-          .bindPopup(`<strong>${hall.name}</strong><br>${hall.description}<br><em>${hall.address}</em><br>🚗 Parking: ${hall.parking ? 'Yes' : 'No'}`);
-        marker.hallData = hall;
-        markerCluster.addLayer(marker);
-        return marker;
+    fetch('250703_Halls.json')
+      .then(response => response.json())
+      .then(data => {
+        const categoryFilter = document.getElementById("categoryFilter");
+
+        // Extract unique categories
+        let uniqueCategories = new Set();
+        data.forEach(entry => {
+          const cats = Array.isArray(entry.category) ? entry.category : [entry.category];
+          cats.forEach(cat => uniqueCategories.add(cat));
+        });
+
+        // Populate dropdown
+        uniqueCategories.forEach(cat => {
+          const option = document.createElement("option");
+          option.value = cat;
+          option.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+          categoryFilter.appendChild(option);
+        });
+
+        // Function to add markers
+        function addMarkers(filteredData) {
+          markers.forEach(marker => map.removeLayer(marker));
+          markers = [];
+
+          filteredData.forEach(entry => {
+            const marker = L.marker(entry.coords)
+              .bindPopup(`<strong>${entry.name}</strong><br>${entry.description || ''}<br><em>${entry.address}</em>`);
+            marker.addTo(map);
+            markers.push(marker);
+          });
+        }
+
+        // Initial marker load
+        addMarkers(data);
+
+        // Filter handler
+        categoryFilter.addEventListener("change", () => {
+          const selectedCategory = categoryFilter.value;
+
+          const filtered = data.filter(entry => {
+            const cat = entry.category;
+            return (
+              selectedCategory === "" ||
+              (Array.isArray(cat) && cat.includes(selectedCategory)) ||
+              cat === selectedCategory
+            );
+          });
+
+          addMarkers(filtered);
+        });
       });
-      map.addLayer(markerCluster);
-
-      // Enable filtering after markers load
-      document.getElementById('search-input').addEventListener('input', filterMarkers);
-      document.getElementById('category-select').addEventListener('change', filterMarkers);
-      document.getElementById('parking-checkbox').addEventListener('change', filterMarkers);
-    })
-    .catch(error => {
-      console.error('Error loading JSON:', error);
-    });
-
-  function filterMarkers() {
-    const query = document.getElementById('search-input').value.toLowerCase();
-    const selectedCategory = document.getElementById('category-select').value;
-    const showParkingOnly = document.getElementById('parking-checkbox').checked;
-
-    markerCluster.clearLayers();
-
-    markers.forEach(marker => {
-      const { name, category, parking } = marker.hallData;
-      const matchesSearch = name.toLowerCase().includes(query);
-      const matchesCategory = selectedCategory === 'all' || category === selectedCategory;
-      const matchesParking = !showParkingOnly || parking;
-
-      if (matchesSearch && matchesCategory && matchesParking) {
-        markerCluster.addLayer(marker);
-      }
-    });
-  }
-</script>
-
+  </script>
 </body>
 </html>
