@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Ireland Cue Sport Venues</title>
+  <meta charset="utf-8" />
+  <title>Pool Halls in Ireland</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Leaflet CSS -->
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""
   />
-
-  <!-- MarkerCluster CSS -->
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
@@ -23,122 +18,115 @@
     href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
   />
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
   <style>
     html, body {
-      margin: 0;
-      padding: 0;
       height: 100%;
+      margin: 0;
       font-family: sans-serif;
     }
     #map {
       height: 100%;
       width: 100%;
     }
-    .filter {
+    #controls {
       position: absolute;
       top: 10px;
       left: 10px;
-      background: white;
-      padding: 10px;
-      border-radius: 5px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
       z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
-    #venueCount {
-      font-weight: bold;
-      margin-top: 5px;
+    input, select, button {
+      padding: 6px;
+      font-size: 1em;
     }
   </style>
 </head>
 <body>
-  <div class="filter">
-    <input type="text" id="searchInput" placeholder="Search by name..." />
-    <br />
-    <label for="categoryFilter">Filter by category:</label>
-    <select id="categoryFilter">
-      <option value="All">All</option>
+  <div id="controls">
+    <input type="text" id="search-input" placeholder="Search by name...">
+    <select id="category-select">
+      <option value="all">All Categories</option>
+      <option value="pool">Pool Only 🎱</option>
+      <option value="snooker">Snooker Only 🔴</option>
+      <option value="pub">Pub + Pool 🍻</option>
     </select>
-    <br />
     <button onclick="resetView()">Reset View</button>
-    <div id="venueCount"></div>
+    <div id="venue-count">Showing 0 venues</div>
   </div>
+
   <div id="map"></div>
 
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin="">
-  </script>
-
-  <!-- MarkerCluster plugin -->
-  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-
   <script>
-    const map = L.map("map").setView([53.4, -7.6], 7);
-    const initialBounds = map.getBounds();
+    const map = L.map('map').setView([53.5, -7.6], 7);
 
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
-    let markers = L.markerClusterGroup();
+    const markerCluster = L.markerClusterGroup();
     let allMarkers = [];
 
-    fetch("ireland_pool_halls.json")
-      .then(res => res.json())
-      .then(data => {
-        const categories = new Set();
+    const poolHalls = [
+      { name: "The Hideout", coords: [53.3395, -6.2620], description: "BYOB pool hall", address: "Dublin", category: "pool" },
+      { name: "Fairview Snooker Club", coords: [53.3648, -6.2299], description: "Classic venue", address: "Dublin", category: "snooker" },
+      { name: "Cross Guns", coords: [53.3565, -6.2683], description: "Historic snooker", address: "Dublin", category: "snooker" },
+      { name: "House Dublin", coords: [53.3331, -6.2569], description: "Cocktail bar w/ pool", address: "Dublin", category: "pub" }
+      // Add your full dataset here
+    ];
 
-        data.forEach(venue => {
-          const marker = L.marker(venue.coords).bindPopup(
-            `<strong>${venue.name}</strong><br>${venue.description}<br><em>${venue.address}</em>`
-          );
-          marker.venueData = venue;
-          markers.addLayer(marker);
-          allMarkers.push(marker);
-          categories.add(venue.category);
-        });
-
-        document.getElementById("venueCount").textContent = `Showing ${allMarkers.length} venues`;
-
-        const categoryFilter = document.getElementById("categoryFilter");
-        categories.forEach(cat => {
-          const option = document.createElement("option");
-          option.value = cat;
-          option.textContent = cat;
-          categoryFilter.appendChild(option);
-        });
-
-        map.addLayer(markers);
-      });
-
-    function filterAndUpdate() {
-      const category = document.getElementById("categoryFilter").value;
-      const searchTerm = document.getElementById("searchInput").value.toLowerCase();
-
-      markers.clearLayers();
-      let visibleCount = 0;
-
-      allMarkers.forEach(marker => {
-        const { name, category: cat } = marker.venueData;
-        if ((category === "All" || cat === category) && name.toLowerCase().includes(searchTerm)) {
-          markers.addLayer(marker);
-          visibleCount++;
-        }
-      });
-
-      document.getElementById("venueCount").textContent = `Showing ${visibleCount} venues`;
+    function createMarker(hall) {
+      const marker = L.marker(hall.coords)
+        .bindPopup(`<strong>${hall.name}</strong><br>${hall.description}<br><em>${hall.address}</em>`);
+      marker.hallData = hall;
+      return marker;
     }
 
-    document.getElementById("categoryFilter").addEventListener("change", filterAndUpdate);
-    document.getElementById("searchInput").addEventListener("input", filterAndUpdate);
+    function filterMarkers() {
+      const query = document.getElementById('search-input').value.toLowerCase();
+      const category = document.getElementById('category-select').value;
+
+      markerCluster.clearLayers();
+
+      const filtered = allMarkers.filter(marker => {
+        const nameMatch = marker.hallData.name.toLowerCase().includes(query);
+        const categoryMatch = category === 'all' || marker.hallData.category === category;
+        return nameMatch && categoryMatch;
+      });
+
+      markerCluster.addLayers(filtered);
+      document.getElementById('venue-count').textContent = `Showing ${filtered.length} venues`;
+    }
 
     function resetView() {
-      map.fitBounds(initialBounds);
-      document.getElementById("categoryFilter").value = "All";
-      document.getElementById("searchInput").value = "";
-      filterAndUpdate();
+      map.setView([53.5, -7.6], 7);
     }
+
+    function updateVisibleCount() {
+      let count = 0;
+      markerCluster.eachLayer(marker => {
+        if (map.getBounds().contains(marker.getLatLng())) count++;
+      });
+      document.getElementById('venue-count').textContent = `Showing ${count} venues`;
+    }
+
+    // Initialization
+    allMarkers = poolHalls.map(createMarker);
+    markerCluster.addLayers(allMarkers);
+    map.addLayer(markerCluster);
+    filterMarkers();
+
+    document.getElementById('search-input').addEventListener('input', filterMarkers);
+    document.getElementById('category-select').addEventListener('change', filterMarkers);
+    map.on('moveend', updateVisibleCount);
   </script>
 </body>
 </html>
