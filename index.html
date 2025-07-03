@@ -75,13 +75,14 @@
     const markerCluster = L.markerClusterGroup();
     let allMarkers = [];
 
-    const poolHalls = [
-      { name: "The Hideout", coords: [53.3395, -6.2620], description: "BYOB pool hall", address: "Dublin", category: "pool" },
-      { name: "Fairview Snooker Club", coords: [53.3648, -6.2299], description: "Classic venue", address: "Dublin", category: "snooker" },
-      { name: "Cross Guns", coords: [53.3565, -6.2683], description: "Historic snooker", address: "Dublin", category: "snooker" },
-      { name: "House Dublin", coords: [53.3331, -6.2569], description: "Cocktail bar w/ pool", address: "Dublin", category: "pub" }
-      // Add your full dataset here
-    ];
+    fetch('ireland_pool_halls.json')
+      .then(response => response.json())
+      .then(data => {
+        allMarkers = data.map(createMarker);
+        markerCluster.addLayers(allMarkers);
+        map.addLayer(markerCluster);
+        filterMarkers();
+      });
 
     function createMarker(hall) {
       const marker = L.marker(hall.coords)
@@ -103,7 +104,7 @@
       });
 
       markerCluster.addLayers(filtered);
-      document.getElementById('venue-count').textContent = `Showing ${filtered.length} venues`;
+      updateVisibleCount();
     }
 
     function resetView() {
@@ -117,12 +118,6 @@
       });
       document.getElementById('venue-count').textContent = `Showing ${count} venues`;
     }
-
-    // Initialization
-    allMarkers = poolHalls.map(createMarker);
-    markerCluster.addLayers(allMarkers);
-    map.addLayer(markerCluster);
-    filterMarkers();
 
     document.getElementById('search-input').addEventListener('input', filterMarkers);
     document.getElementById('category-select').addEventListener('change', filterMarkers);
