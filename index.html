@@ -7,7 +7,6 @@
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-sA+e2atCf0t0iLS1g0w37v2DkGgkGgk1D2aEWX8H6DQ="
     crossorigin=""
   />
   <style>
@@ -43,12 +42,8 @@
 
   <div id="map"></div>
 
-  <!-- Load Leaflet -->
-  <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-VuZ+f8Boe3yMWwQYo/EF04P6hi9ddHfWr1R2B8GkL2E="
-    crossorigin="">
-  </script>
+  <!-- Load Leaflet WITHOUT integrity check -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 
   <!-- Your map logic -->
   <script>
@@ -70,14 +65,14 @@
       .then(data => {
         const categoryFilter = document.getElementById("categoryFilter");
 
-        // Get unique categories
+        // Extract unique categories
         const uniqueCategories = new Set();
         data.forEach(entry => {
           const cats = Array.isArray(entry.category) ? entry.category : [entry.category];
           cats.forEach(cat => uniqueCategories.add(cat));
         });
 
-        // Populate filter dropdown
+        // Populate dropdown
         uniqueCategories.forEach(cat => {
           const option = document.createElement("option");
           option.value = cat;
@@ -85,15 +80,14 @@
           categoryFilter.appendChild(option);
         });
 
-        // Function to display markers
+        // Function to add markers
         function addMarkers(filteredData) {
           markers.forEach(marker => map.removeLayer(marker));
           markers = [];
 
           filteredData.forEach(entry => {
-            const marker = L.marker(entry.coords).bindPopup(
-              `<strong>${entry.name}</strong><br>${entry.description || ''}<br><em>${entry.address}</em>`
-            );
+            const marker = L.marker(entry.coords)
+              .bindPopup(`<strong>${entry.name}</strong><br>${entry.description || ''}<br><em>${entry.address}</em>`);
             marker.addTo(map);
             markers.push(marker);
           });
@@ -102,7 +96,7 @@
         // Initial marker load
         addMarkers(data);
 
-        // Filter logic
+        // Filter handler
         categoryFilter.addEventListener("change", () => {
           const selectedCategory = categoryFilter.value;
 
