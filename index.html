@@ -84,7 +84,6 @@
         const venueCount = document.getElementById("venueCount");
         const resetBtn = document.getElementById("resetBtn");
 
-        // Populate category dropdown
         const categories = new Set();
         data.forEach(entry => {
           const cats = Array.isArray(entry.category) ? entry.category : [entry.category];
@@ -110,9 +109,9 @@
           clearMarkers();
           filteredData.forEach(entry => {
             const marker = L.marker(entry.coords)
-              .bindPopup(`<strong>${entry.name}</strong><br>${entry.description || ''}<br><em>${entry.address}</em>`);
-            marker.addTo(map);
-            marker.openPopup(); // Auto-expand popup
+              .addTo(map)
+              .bindPopup(`<strong>${entry.name}</strong><br>${entry.description || ''}<br><em>${entry.address}</em>`) 
+              .openPopup();
             markers.push(marker);
           });
           updateCount(filteredData.length);
@@ -136,7 +135,6 @@
           addMarkers(filtered);
         }
 
-        // Event listeners
         nameSearch.addEventListener("input", applyFilters);
         categoryFilter.addEventListener("change", applyFilters);
 
@@ -147,7 +145,6 @@
           addMarkers(allData);
         });
 
-        // Initial load
         addMarkers(data);
       })
       .catch(error => {
