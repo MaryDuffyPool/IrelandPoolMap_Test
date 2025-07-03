@@ -38,19 +38,21 @@
     <label for="category">Filter by category:</label>
     <select id="categoryFilter">
       <option value="">All</option>
-      <!-- Categories will be dynamically inserted here -->
     </select>
   </div>
 
   <div id="map"></div>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  <!-- Load Leaflet -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-VuZ+f8Boe3yMWwQYo/EF04P6hi9ddHfWr1R2B8GkL2E="
     crossorigin="">
   </script>
 
+  <!-- Your map logic -->
   <script>
-    let map = L.map('map').setView([53.5, -7.5], 7);
+    const map = L.map('map').setView([53.5, -7.5], 7);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
@@ -59,18 +61,23 @@
     let markers = [];
 
     fetch('ireland_pool_halls.json')
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to load JSON');
+        }
+        return response.json();
+      })
       .then(data => {
         const categoryFilter = document.getElementById("categoryFilter");
 
-        // Extract unique categories
-        let uniqueCategories = new Set();
+        // Get unique categories
+        const uniqueCategories = new Set();
         data.forEach(entry => {
           const cats = Array.isArray(entry.category) ? entry.category : [entry.category];
           cats.forEach(cat => uniqueCategories.add(cat));
         });
 
-        // Populate dropdown
+        // Populate filter dropdown
         uniqueCategories.forEach(cat => {
           const option = document.createElement("option");
           option.value = cat;
@@ -78,14 +85,15 @@
           categoryFilter.appendChild(option);
         });
 
-        // Function to add markers
+        // Function to display markers
         function addMarkers(filteredData) {
           markers.forEach(marker => map.removeLayer(marker));
           markers = [];
 
           filteredData.forEach(entry => {
-            const marker = L.marker(entry.coords)
-              .bindPopup(`<strong>${entry.name}</strong><br>${entry.description || ''}<br><em>${entry.address}</em>`);
+            const marker = L.marker(entry.coords).bindPopup(
+              `<strong>${entry.name}</strong><br>${entry.description || ''}<br><em>${entry.address}</em>`
+            );
             marker.addTo(map);
             markers.push(marker);
           });
@@ -94,7 +102,7 @@
         // Initial marker load
         addMarkers(data);
 
-        // Filter handler
+        // Filter logic
         categoryFilter.addEventListener("change", () => {
           const selectedCategory = categoryFilter.value;
 
@@ -109,6 +117,9 @@
 
           addMarkers(filtered);
         });
+      })
+      .catch(error => {
+        console.error("Map failed to load:", error);
       });
   </script>
 </body>
