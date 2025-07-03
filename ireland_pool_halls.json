@@ -7,6 +7,7 @@
       53.85578239373694,
       -9.29841455289193
     ],
+    "category": "club",
     "parking": true
   },
   {
@@ -17,6 +18,7 @@
       53.09811294026676,
       -7.722301042769988
     ],
+    "category": "pub",
     "parking": true
   },
   {
@@ -27,6 +29,7 @@
       53.27432563307315,
       -7.61021441617297
     ],
+    "category": "pub",
     "parking": true
   },
   {
@@ -37,6 +40,7 @@
       53.423010831634066,
       -7.934272345743762
     ],
+    "category": "pub",
     "parking": true
   },
   {
@@ -47,6 +51,7 @@
       53.27456312624631,
       -7.488396487336358
     ],
+    "category": "pool",
     "parking": true
   },
   {
@@ -57,6 +62,7 @@
       54.94961398055749,
       -8.360137000714678
     ],
+    "category": "pub",
     "parking": true
   },
   {
@@ -67,6 +73,7 @@
       54.80622982744268,
       -7.768804117927281
     ],
+    "category": "pub",
     "parking": true
   },
   {
@@ -77,6 +84,7 @@
       54.50106957618305,
       -8.190450744927997
     ],
+    "category": "pool",
     "parking": true
   },
   {
@@ -87,6 +95,7 @@
       52.662333337019206,
       -8.62867110272312
     ],
+    "category": "sports bar",
     "parking": false
   },
   {
@@ -97,475 +106,9 @@
       54.96695729423896,
       -7.746640600399851
     ],
-    "parking": true
-  },
-  {
-    "name": "Teac Bhillies",
-    "description": "Local bar with pool table, lively weekends.",
-    "address": "Gortahork, Co. Donegal, Ireland",
-    "coords": [
-      55.121337447505596,
-      -8.133181135197521
-    ],
-    "parking": true
-  },
-  {
-    "name": "Corcorans Bar",
-    "description": "Carlow bar with pool table and outdoor seating.",
-    "address": "Carlow, Ireland",
-    "coords": [
-      52.836766563804346,
-      -6.936742431548348
-    ],
-    "parking": false
-  },
-  {
-    "name": "Templemore Snooker Club",
-    "description": "Community snooker club with multiple tables.",
-    "address": "Templemore, Co. Tipperary, Ireland",
-    "coords": [
-      52.79661721780342,
-      -7.83548866136952
-    ],
-    "parking": true
-  },
-  {
-    "name": "Portlaoise Pool Hall",
-    "description": "Central pool hall in Laois with several Supreme tables. Located on first floor, no lift.",
-    "address": "Portlaoise, Co. Laois, R32 KT9D, Ireland",
-    "coords": [
-      53.0343022412759,
-      -7.298920211289699
-    ],
-    "parking": true
-  },
-  {
-    "name": "MJ O'Connor Bar",
-    "description": "Classic pub in Leitrim with a pool table.",
-    "address": "Main St, Carrick-on-Shannon, Leitrim, N41 KX81, Ireland",
-    "coords": [
-      53.99007851998919,
-      -8.06509461798194
-    ],
-    "parking": false
-  },
-  {
-    "name": "The Barrelstore",
-    "description": "Trendy bar in Carrick-on-Shannon with pool table and live music.",
-    "address": "Carrick-on-Shannon, Co. Leitrim, Ireland",
-    "coords": [
-      53.944870744814615,
-      -8.095034676202207
-    ],
-    "parking": false
-  },
-  {
-    "name": "Dog & Duck Pub",
-    "description": "Glasson gastropub with 1 pool table and beer garden. Beautiful meals available",
-    "address": "Glasson, Athlone, Co. Westmeath, Ireland",
-    "coords": [
-      53.44881693760578,
-      -7.888001879480779
-    ],
-    "parking": true
-  },
-  {
-    "name": "Gleeson's Bar",
-    "description": "Bar in Sixmilebridge with a pool table and friendly locals.",
-    "address": "Frederick Square, Leverstown, Sixmilebridge, Co. Clare, Ireland",
-    "coords": [
-      52.74315189852506,
-      -8.772362302095273
-    ],
-    "parking": true
-  },
-  {
-    "name": "D15 Cuesports",
-    "description": "Modern snooker and pool club with tournament tables.",
-    "address": "Blanchardstown, Dublin 15, Ireland",
-    "coords": [
-      53.4031417734718,
-      -6.39917583151101
-    ],
-    "parking": true
-  },
-  {
-    "name": "Ball Breakers",
-    "description": "Lively pool and snooker venue with multiple tables and a sports bar atmosphere.",
-    "address": "13C Ballybrit Heights, Galway, H91 WY6P, Ireland",
-    "coords": [
-      53.29278005643917,
-      -8.989030845008386
-    ],
-    "parking": true
-  },
-  {
-    "name": "Munster Cuesports",
-    "description": "Pool club with 6 Supreme pool tables.",
-    "address": "Monaclinoe Industrial Estate, Ballysimon Road, Limerick, Ireland",
-    "coords": [
-      52.6537628028738,
-      -8.58728357863582
-    ],
-    "parking": true
-  },
-  {
-    "name": "J'Macs Pool Club",
-    "description": "Dedicated pool venue with 16 Supreme tables, 2 Snooker tables and a Chinese Pool Table. Situated within a complex with cinema and arcade.",
-    "address": "Metges Lane, Navan, Co. Meath, Ireland",
-    "coords": [
-      53.65378810984876,
-      -6.685163116147878
-    ],
-    "parking": false
-  },
-  {
-    "name": "Sharkz Pool Hall",
-    "description": "Modern pool club in Newbridge with Supreme tables and refreshments.",
-    "address": "Henry Street, Newbridge, Co. Kildare, Ireland",
-    "coords": [
-      53.179413229149546,
-      -6.800691512418822
-    ],
-    "parking": false
-  },
-  {
-    "name": "Woodpecker Sports Bar",
-    "description": "Ashford bar with sports, food, and pool facilities.",
-    "address": "Ashford, Co. Wicklow, Ireland",
-    "coords": [
-      53.00756027493077,
-      -6.109095900844034
-    ],
-    "parking": true
-  },
-  {
-    "name": "Furlongs Bar & Lounge",
-    "description": "Bar with pool table and live music nights.",
-    "address": "Curracloe, Wexford, Y21 DP62, Ireland",
-    "coords": [
-      52.392907156968434,
-      -6.388512633866351
-    ],
-    "parking": true
-  },
-  {
-    "name": "Billy Kellys Bar",
-    "description": "Classic Irish pub with pool table and community feel.",
-    "address": "The Faythe, Wexford, Y35 A4W8, Ireland",
-    "coords": [
-      52.33295957453829,
-      -6.457190033437724
-    ],
-    "parking": true
-  },
-  {
-    "name": "Morriseys Public House aka Sooners",
-    "description": "Friendly pub in Cassagh, New Ross known for a welcoming atmosphere and occasional pool competitions.",
-    "address": "Cassagh, New Ross, Co. Wexford, Y34 KX36, Ireland",
-    "coords": [
-      52.343284367521754,
-      -6.877610149681841
-    ],
-    "parking": true
-  },
-  {
-    "name": "The Lantern",
-    "coords": [
-      53.27727962127146,
-      -7.495894833375769
-    ],
-    "description": "Long-established Tullamore pub on Kilbride Street, part of a mixed-use venue with bar, food, and residential units.",
-    "address": "Kilbride Street, Tullamore, Co. Offaly, Ireland",
-    "parking": true
-  },
-  {
-    "name": "Red Cove Inn",
-    "description": "Casual bar in Mahon with pool table and regular live music.",
-    "address": "Red Cove Inn, Avenue De Rennes, Mahon, Cork, Ireland",
-    "coords": [
-      51.89308321513051,
-      -8.403765816263359
-    ],
-    "parking": true
-  },
-  {
-    "name": "Smiddy's Bar",
-    "description": "Casual pub in Mullingar with a pool table and regular local crowd.",
-    "address": "Austin Friars Street, Mullingar, Co. Westmeath, Ireland",
-    "coords": [
-      53.524789151927855,
-      -7.344969091737544
-    ],
-    "parking": false
-  },
-  {
-    "name": "Bridge Bar",
-    "description": "Cosy riverside pub with pool table, drinks and traditional charm.",
-    "address": "Dominick Street, Mullingar, Co. Westmeath, Ireland",
-    "coords": [
-      53.52616127376311,
-      -7.334130202666263
-    ],
-    "parking": false
-  },
-  {
-    "name": "Clarke's Bar",
-    "description": "Popular local bar with friendly service and a pool table.",
-    "address": "Patrick Street, Mullingar, Co. Westmeath, Ireland",
-    "coords": [
-      53.5240205227009,
-      -7.348732073829713
-    ],
-    "parking": false
-  },
-  {
-    "name": "Mary Jo's Bar",
-    "description": "Traditional Wexford pub with a pool table, local charm and a welcoming atmosphere.",
-    "address": "Barntown, Wexford, Co. Wexford, Ireland",
-    "coords": [
-      52.338639,
-      -6.562823
-    ],
-    "parking": true
-  },
-  {
-    "name": "The Spot",
-    "description": "Popular pool venue located at Naomh \u00c9anna complex in Gorey, with modern tables and a relaxed atmosphere.",
-    "address": "The Spot, Naomh \u00c9anna, Clonatin Lower, Gorey, Co. Wexford, Y25 P7K7, Ireland",
-    "coords": [
-      52.6809,
-      -6.2749
-    ],
-    "parking": true
-  },
-  {
-    "name": "The Railway Inn",
-    "description": "Family\u2011friendly bar with pool hall, beer garden, AirBnB rooms and spacious parking.",
-    "address": "Beckville, Baldwinstown, Co. Wexford, Y35 R859, Ireland",
-    "coords": [
-      52.23610716953167,
-      -6.583530360424227
-    ],
-    "parking": true
-  },
-  {
-    "name": "Danny Byrnes Bar",
-    "description": "Lively Mullingar pub with beer garden, food, live music and a pool table.",
-    "address": "Pearse Street, Mullingar, Co. Westmeath, Ireland",
-    "coords": [
-      53.52595196312213,
-      -7.340443046849388
-    ],
-    "parking": false
-  },
-  {
-    "name": "The Druid",
-    "description": "Cozy traditional pub on Parnell Street in Mountmellick, with a pool table and local charm.",
-    "address": "Parnell Street, Mountmellick, Co. Laois, R32 R267, Ireland",
-    "coords": [
-      53.116526116384314,
-      -7.324934489814987
-    ],
-    "parking": false
-  },
-  {
-    "name": "Turley's Bar",
-    "description": "Classic Irish bar on Parnell Street in Mountmellick, known for a friendly local crowd and pool table.",
-    "address": "Parnell Street, Mountmellick, Co. Laois, R32 AY66, Ireland",
-    "coords": [
-      53.118777614876514,
-      -7.312992263082518
-    ],
-    "parking": false
-  },
-  {
-    "name": "Kerrigan's Bar",
-    "description": "Lively traditional pub in Mullingar known for sports screenings and its pool table.",
-    "address": "Harbour Street, Mullingar, Co. Westmeath, Ireland",
-    "coords": [
-      53.52792423234259,
-      -7.341087533359166
-    ],
-    "parking": false
-  },
-  {
-    "name": "Paddy Ryans Bar",
-    "description": "Pub in Horseleap village, straddling the Westmeath\Offaly border with 3 Supreme Pool tables and a large carpark out the back.",
-    "address": "Main Street, Horseleap, Co. Westmeath, Ireland",
-    "coords": [
-      53.39277122183092,
-      -7.581391902675065
-    ],
-    "parking": true
-  },
-  {
-    "name": "The Pool Knight Shack",
-    "description": "Pool venue inside Charthouse Business Centre. 7 Supreme tables, 1 full size Pro Snooker table and 1 American Pro 9ft Table.",
-    "address": "Charthouse Business Centre, Richmond Road, Fairview, Dublin D03, Ireland",
-    "coords": [
-      53.36671684071967,
-      -6.246149062971745
-    ],
-    "parking": true
-  },
-  {
-    "name": "Drogheda Potters Snooker and Pool Hall",
-    "description": "8 Supreme Pool Tables and 6 Snooker Tables.",
-    "address": "East Drogheda, Drogheda, Co. Louth, A92 YX7N, Ireland",
-    "coords": [
-      53.36671684071967,
-      -6.246149062971745
-    ],
-    "parking": true
-  },
-  {
-    "name": "Laois Pool Clubhouse",
-    "description": "Local pool venue with 4 Supreme pool tables, located in Ballacolla village, Co. Laois.",
-    "address": "Ballacolla, Co. Laois, Ireland",
-    "coords": [
-      52.882528914001256,
-      -7.447553659801627
-    ],
-    "parking": true
-  },
-  {
-    "name": "Cueclub Killarney",
-    "description": "Modern club with 6 Supreme pool tables and 3 Snooker tables, in the heart of Killarney.",
-    "address": "Killarney, Co. Kerry, Ireland",
-    "coords": [
-      52.06017529403459,
-      -9.509291718108972
-    ],
-    "parking": true
-  },
-  {
-    "name": "QE2 Antrim",
-    "description": "Popular club with 6 full size snooker tables, 8 Supreme Winner pool tables and 1 x Supreme Match pool table.",
-    "address": "Antrim, Northern Ireland",
-    "coords": [
-      54.71812645822908,
-      -5.821061231423311
-    ],
-    "parking": true
-  },
-  {
-    "name": "Reds Sports Lounge",
-    "description": "Sports bar and pool venue in Ballymena offering a relaxed atmosphere, drinks, and multiple screens for live sport.",
-    "address": "7-9 William St, Ballymena, BT43 6AW, Northern Ireland",
-    "coords": [
-      54.86766182178371,
-      -6.272597375596395
-    ],
-    "parking": true
-  },
-  {
-    "name": "Cue Club Larne",
-    "description": "Local pool and snooker venue in Larne offering a relaxed environment and multiple tables.",
-    "address": "13 Station Road, Larne, Co. Antrim, BT40 3AA, Northern Ireland",
-    "coords": [
-      54.85025636161173,
-      -5.82145920257775
-    ],
-    "parking": true
-  },
-  {
-    "name": "Blackstaff Pool & Snooker Club",
-    "description": "Popular pub and live event venue in Belfast, known for pool, music, and sports screenings.",
-    "address": "149-155 Sandy Row, Belfast, BT12 5ET, Northern Ireland",
-    "coords": [
-      54.598622467855485,
-      -5.95760221823296
-    ],
-    "parking": false
-  },
-  {
-    "name": "Antrim Snooker and pool Club",
-    "description": "Local sports club in Antrim offering pool facilities, sports events, and a social atmosphere.",
-    "address": "Antrim, Northern Ireland",
-    "coords": [
-      54.72733337972591,
-      -6.175174202586027
-    ],
-    "parking": true
-  },
-  {
-    "name": "Potters Snooker and Pool Club",
-    "description": "Well-known club in Coleraine offering 6 Heated Snooker Tables and 6 Supreme Pool Tables.",
-    "address": "Coleraine, Northern Ireland",
-    "coords": [
-      55.13017591265165,
-      -6.667293631395522
-    ],
-    "parking": true
-  },
-  {
-    "name": "Regal Leisure",
-    "description": "Modern leisure venue with pool and snooker tables, located in Dungannon.",
-    "address": "Dungannon, Northern Ireland",
-    "coords": [
-      54.4245025425699,
-      -6.439878417952892
-    ],
-    "parking": true
-  },
-  {
-    "name": "Q-Sport Hall",
-    "description": "Local hall in Fintona offering snooker and pool facilities.",
-    "address": "Fintona, Co. Tyrone, Northern Ireland",
-    "coords": [
-      54.49838530116465,
-      -7.315739270234224
-    ],
-    "parking": true
-  },
-  {
-    "name": "The Coach Club",
-    "description": "Popular nightlife venue offering drinks, pool tables, and weekend entertainment.",
-    "address": "Banbridge, Co. Down, Northern Ireland",
-    "coords": [
-      54.45087478396711,
-      -6.0962482606267585
-    ],
-    "parking": true
-  },
-  {
-    "name": "The Cue Club Newry",
-    "description": "Modern pool and snooker club with tournament tables and a relaxed atmosphere.",
-    "address": "Newry, Co. Down, Northern Ireland",
-    "coords": [
-      54.178985208753716,
-      -6.336375104479222
-    ],
-    "parking": true
-  },
-  {
-    "name": "Nully's Pool Rooms",
-    "description": "Local pool venue known for its welcoming atmosphere and multiple pool tables.",
-    "address": "Dublin, Ireland",
-    "coords": [
-      53.32415809388635,
-      -6.324437460352873
-    ],
-    "parking": false
-  },
-  {
-    "name": "Pool Central",
-    "description": "Pool venue in Shillelagh offering casual play and local tournaments in a relaxed setting.",
-    "address": "Shillelagh, Co. Wicklow, Ireland",
-    "coords": [
-      52.754889392779056,
-      -6.536446809642972
-    ],
-    "parking": true
-  },
-  {
-    "name": "Dolan's Pub",
-    "description": "Lively local pub in Clara with a pool table and regular entertainment.",
-    "address": "Clara, Co. Offaly, Ireland",
-    "coords": [
-      53.343755609138974,
-      -7.614195831514962
+    "category": [
+      "pool",
+      "snooker"
     ],
     "parking": true
   }
