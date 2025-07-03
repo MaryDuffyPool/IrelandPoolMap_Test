@@ -75,15 +75,6 @@
     const markerCluster = L.markerClusterGroup();
     let allMarkers = [];
 
-    fetch('ireland_pool_halls.json')
-      .then(response => response.json())
-      .then(data => {
-        allMarkers = data.map(createMarker);
-        markerCluster.addLayers(allMarkers);
-        map.addLayer(markerCluster);
-        filterMarkers();
-      });
-
     function createMarker(hall) {
       const marker = L.marker(hall.coords)
         .bindPopup(`<strong>${hall.name}</strong><br>${hall.description}<br><em>${hall.address}</em>`);
@@ -104,7 +95,7 @@
       });
 
       markerCluster.addLayers(filtered);
-      updateVisibleCount();
+      document.getElementById('venue-count').textContent = `Showing ${filtered.length} venues`;
     }
 
     function resetView() {
@@ -119,6 +110,15 @@
       document.getElementById('venue-count').textContent = `Showing ${count} venues`;
     }
 
+    // Initialization
+fetch('ireland_pool_halls.json')
+  .then(response => response.json())
+  .then(data => {
+    allMarkers = data.map(createMarker);
+    markerCluster.addLayers(allMarkers);
+    map.addLayer(markerCluster);
+    filterMarkers();
+  });
     document.getElementById('search-input').addEventListener('input', filterMarkers);
     document.getElementById('category-select').addEventListener('change', filterMarkers);
     map.on('moveend', updateVisibleCount);
