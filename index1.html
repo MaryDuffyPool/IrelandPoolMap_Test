@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ireland Cue Sport Venues</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    crossorigin=""
+  />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: sans-serif;
+    }
+    #map {
+      height: 100%;
+      width: 100%;
+    }
+    .filter {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: white;
+      padding: 10px;
+      border-radius: 5px;
+      z-index: 1000;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      max-width: 250px;
+    }
+    #nameSearch {
+      width: 100%;
+      margin-bottom: 8px;
+    }
+    #resetBtn {
+      margin-top: 8px;
+      width: 100%;
+    }
+    #venueCount {
+      margin-top: 8px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="filter">
+    <input type="text" id="nameSearch" placeholder="Search by name..." />
+    <label for="category">Filter by category:</label>
+    <select id="categoryFilter">
+      <option value="">All</option>
+    </select>
+    <button id="resetBtn">Reset View</button>
+    <div id="venueCount"></div>
+  </div>
+
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script>
+    const map = L.map('map').setView([53.5, -7.5], 7);
+    const defaultView = [53.5, -7.5];
+    const defaultZoom = 7;
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    let allData = [];
+    let markers = [];
+
+    fetch('ireland_pool_halls.json')
+      .then(response => {
+        if (!response.ok) throw new Error('Failed to load JSON');
+        return response.json();
+      })
+      .then(data => {
+        allData = data;
+
+        const nameSearch = document.getElementById("nameSearch");
+        const categoryFilter = document.getElementById("categoryFilter");
+        const venueCount = document.getElementById("venueCount");
+        const resetBtn = document.getElementById("resetBtn");
+
+        // Populate category dropdown
+        const categories = new Set();
+        data.forEach(entry => {
+          const cats = Array.isArray(entry.category) ? entry.category : [entry.category];
+          cats.forEach(cat => categories.add(cat));
+        });
+        categories.forEach(cat => {
+          const option = document.createElement("option");
+          option.value = cat;
+          option.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+          categoryFilter.appendChild(option);
+        });
+
+        function updateCount(n) {
+          venueCount.textContent = `Showing ${n} venue${n !== 1 ? 's' : ''}`;
+        }
+
+        function clearMarkers() {
+          markers.forEach(marker => map.removeLayer(marker));
+          markers = [];
+        }
+
+        function addMarkers(filteredData) {
+          clearMarkers();
+          filteredData.forEach(entry => {
+            const marker = L.marker(entry.coords)
+              .bindPopup(`<strong>${entry.name}</strong><br>${entry.description || ''}<br><em>${entry.address}</em>`);
+            marker.addTo(map);
+            marker.openPopup(); // Auto-expand popup
+            markers.push(marker);
+          });
+          updateCount(filteredData.length);
+        }
+
+        function applyFilters() {
+          const nameQuery = nameSearch.value.trim().toLowerCase();
+          const selectedCategory = categoryFilter.value;
+
+          const filtered = allData.filter(entry => {
+            const nameMatch = entry.name.toLowerCase().includes(nameQuery);
+            const cat = entry.category;
+            const categoryMatch = (
+              selectedCategory === "" ||
+              (Array.isArray(cat) && cat.includes(selectedCategory)) ||
+              cat === selectedCategory
+            );
+            return nameMatch && categoryMatch;
+          });
+
+          addMarkers(filtered);
+        }
+
+        // Event listeners
+        nameSearch.addEventListener("input", applyFilters);
+        categoryFilter.addEventListener("change", applyFilters);
+
+        resetBtn.addEventListener("click", () => {
+          nameSearch.value = "";
+          categoryFilter.value = "";
+          map.setView(defaultView, defaultZoom);
+          addMarkers(allData);
+        });
+
+        // Initial load
+        addMarkers(data);
+      })
+      .catch(error => {
+        console.error("Map failed to load:", error);
+      });
+  </script>
+</body>
+</html>
