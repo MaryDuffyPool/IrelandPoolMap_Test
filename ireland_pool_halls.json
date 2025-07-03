@@ -12,7 +12,7 @@
   },
   {
     "name": "Giltraps Pub",
-    "description": "Historic 17th\u2011century family\u2011run pub with open fires, award\u2011winning atmosphere, stone\u2011baked pizzas, glamping & townhouse next door.",
+    "description": "Historic 17th century family run pub with open fires, award winning atmosphere, stone baked pizzas, glamping & townhouse next door.",
     "address": "Main Street, Kinnitty, Birr, Co. Offaly, Ireland",
     "coords": [
       53.09811294026676,
@@ -23,7 +23,7 @@
   },
   {
     "name": "The Thatch",
-    "description": "Traditional thatched\u2011roof pub and music venue beside the Grand Canal, offering live music, B&B, bar and restaurant.",
+    "description": "Traditional thatched roof pub and music venue beside the Grand Canal, offering live music, B&B, bar and restaurant.",
     "address": "Loughroe, Rahan, Co. Offaly, Ireland",
     "coords": [
       53.27432563307315,
@@ -89,7 +89,7 @@
   },
   {
     "name": "Hunter's Sports Bar",
-    "description": "American\u2011style sports bar & grill with free pool, darts, arcade downstairs, 18 screens for live sport, cocktails and pub grub.",
+    "description": "American style sports bar & grill with free pool, darts, arcade downstairs, 18 screens for live sport, cocktails and pub grub.",
     "address": "O'Connell St, Limerick City, Co. Limerick, Ireland",
     "coords": [
       52.662333337019206,
@@ -106,7 +106,10 @@
       54.96695729423896,
       -7.746640600399851
     ],
-    "category": "pool + Snooker",
+    "category": [
+      "pool",
+      "snooker"
+    ],
     "parking": true
   },
   {
@@ -364,8 +367,8 @@
   },
   {
     "name": "The Spot",
-    "description": "Popular pool venue located at Naomh \u00c9anna complex in Gorey, with modern tables and a relaxed atmosphere.",
-    "address": "The Spot, Naomh \u00c9anna, Clonatin Lower, Gorey, Co. Wexford, Y25 P7K7, Ireland",
+    "description": "Popular pool venue located at Naomh  Eanna complex in Gorey, with modern tables and a relaxed atmosphere.",
+    "address": "The Spot, Naomh  Eanna, Clonatin Lower, Gorey, Co. Wexford, Y25 P7K7, Ireland",
     "coords": [
       52.6809,
       -6.2749
@@ -375,7 +378,7 @@
   },
   {
     "name": "The Railway Inn",
-    "description": "Family\u2011friendly bar with pool hall, beer garden, AirBnB rooms and spacious parking.",
+    "description": "Family friendly bar with pool hall, beer garden, AirBnB rooms and spacious parking.",
     "address": "Beckville, Baldwinstown, Co. Wexford, Y35 R859, Ireland",
     "coords": [
       52.23610716953167,
@@ -430,7 +433,7 @@
   },
   {
     "name": "Paddy Ryans Bar",
-    "description": "Pub in Horseleap village, straddling the Westmeath\Offaly border with 3 Supreme Pool tables and a large carpark out the back.",
+    "description": "Pub in Horseleap village, straddling the Westmeath /Offaly border with 3 Supreme Pool tables and a large carpark out the back.",
     "address": "Main Street, Horseleap, Co. Westmeath, Ireland",
     "coords": [
       53.39277122183092,
@@ -448,6 +451,209 @@
       -6.246149062971745
     ],
     "category": "pool",
+    "parking": true
+  },
+  {
+    "name": "Drogheda Potters Snooker and Pool Hall",
+    "description": "8 Supreme Pool Tables and 6 Snooker Tables.",
+    "address": "East Drogheda, Drogheda, Co. Louth, A92 YX7N, Ireland",
+    "coords": [
+      53.36671684071967,
+      -6.246149062971745
+    ],
+    "category": [
+      "pool",
+      "snooker"
+    ],
+    "parking": true
+  },
+  {
+    "name": "Laois Pool Clubhouse",
+    "description": "Local pool venue with 4 Supreme pool tables, located in Ballacolla village, Co. Laois.",
+    "address": "Ballacolla, Co. Laois, Ireland",
+    "coords": [
+      52.882528914001256,
+      -7.447553659801627
+    ],
+    "category": "pool",
+    "parking": true
+  },
+  {
+    "name": "Cueclub Killarney",
+    "description": "Modern club with 6 Supreme pool tables and 3 Snooker tables, in the heart of Killarney.",
+    "address": "Killarney, Co. Kerry, Ireland",
+    "coords": [
+      52.06017529403459,
+      -9.509291718108972
+    ],
+    "category": [
+      "pool",
+      "snooker"
+    ],
+    "parking": true
+  },
+  {
+    "name": "QE2 Antrim",
+    "description": "Popular club with 6 full size snooker tables, 8 Supreme Winner pool tables and 1 x Supreme Match pool table.",
+    "address": "Antrim, Northern Ireland",
+    "coords": [
+      54.71812645822908,
+      -5.821061231423311
+    ],
+    "category": [
+      "pool",
+      "snooker"
+    ],
+    "parking": true
+  },
+  {
+    "name": "Reds Sports Lounge",
+    "description": "Sports bar and pool venue in Ballymena offering a relaxed atmosphere, drinks, and multiple screens for live sport.",
+    "address": "7-9 William St, Ballymena, BT43 6AW, Northern Ireland",
+    "coords": [
+      54.86766182178371,
+      -6.272597375596395
+    ],
+    "category": "sports bar",
+    "parking": true
+  },
+  {
+    "name": "Cue Club Larne",
+    "description": "Local pool and snooker venue in Larne offering a relaxed environment and multiple tables.",
+    "address": "13 Station Road, Larne, Co. Antrim, BT40 3AA, Northern Ireland",
+    "coords": [
+      54.85025636161173,
+      -5.82145920257775
+    ],
+    "category": [
+      "pool",
+      "snooker"
+    ],
+    "parking": true
+  },
+  {
+    "name": "Blackstaff Pool & Snooker Club",
+    "description": "Popular pub and live event venue in Belfast, known for pool, music, and sports screenings.",
+    "address": "149-155 Sandy Row, Belfast, BT12 5ET, Northern Ireland",
+    "coords": [
+      54.598622467855485,
+      -5.95760221823296
+    ],
+    "category": [
+      "pool",
+      "snooker"
+    ],
+    "parking": false
+  },
+  {
+    "name": "Antrim Snooker and pool Club",
+    "description": "Local sports club in Antrim offering pool facilities, sports events, and a social atmosphere.",
+    "address": "Antrim, Northern Ireland",
+    "coords": [
+      54.72733337972591,
+      -6.175174202586027
+    ],
+    "category": [
+      "pool",
+      "snooker"
+    ],
+    "parking": true
+  },
+  {
+    "name": "Potters Snooker and Pool Club",
+    "description": "Well-known club in Coleraine offering 6 Heated Snooker Tables and 6 Supreme Pool Tables.",
+    "address": "Coleraine, Northern Ireland",
+    "coords": [
+      55.13017591265165,
+      -6.667293631395522
+    ],
+    "category": [
+      "pool",
+      "snooker"
+    ],
+    "parking": true
+  },
+  {
+    "name": "Regal Leisure",
+    "description": "Modern leisure venue with pool and snooker tables, located in Dungannon.",
+    "address": "Dungannon, Northern Ireland",
+    "coords": [
+      54.4245025425699,
+      -6.439878417952892
+    ],
+    "category": [
+      "pool",
+      "snooker"
+    ],
+    "parking": true
+  },
+  {
+    "name": "Q-Sport Hall",
+    "description": "Local hall in Fintona offering snooker and pool facilities.",
+    "address": "Fintona, Co. Tyrone, Northern Ireland",
+    "coords": [
+      54.49838530116465,
+      -7.315739270234224
+    ],
+    "category": [
+      "pool",
+      "snooker"
+    ],
+    "parking": true
+  },
+  {
+    "name": "The Coach Club",
+    "description": "Popular nightlife venue offering drinks, pool tables, and weekend entertainment.",
+    "address": "Banbridge, Co. Down, Northern Ireland",
+    "coords": [
+      54.45087478396711,
+      -6.0962482606267585
+    ],
+    "category": "club",
+    "parking": true
+  },
+  {
+    "name": "The Cue Club Newry",
+    "description": "Modern pool and snooker club with tournament tables and a relaxed atmosphere.",
+    "address": "Newry, Co. Down, Northern Ireland",
+    "coords": [
+      54.178985208753716,
+      -6.336375104479222
+    ],
+    "category": "pool & snooker",
+    "parking": true
+  },
+  {
+    "name": "Nully's Pool Rooms",
+    "description": "Local pool venue known for its welcoming atmosphere and multiple pool tables.",
+    "address": "Dublin, Ireland",
+    "coords": [
+      53.32415809388635,
+      -6.324437460352873
+    ],
+    "category": "pool",
+    "parking": false
+  },
+  {
+    "name": "Pool Central",
+    "description": "Pool venue in Shillelagh offering casual play and local tournaments in a relaxed setting.",
+    "address": "Shillelagh, Co. Wicklow, Ireland",
+    "coords": [
+      52.754889392779056,
+      -6.536446809642972
+    ],
+    "category": "pool",
+    "parking": true
+  },
+  {
+    "name": "Dolan's Pub",
+    "description": "Lively local pub in Clara with a pool table and regular entertainment.",
+    "address": "Clara, Co. Offaly, Ireland",
+    "coords": [
+      53.343755609138974,
+      -7.614195831514962
+    ],
+    "category": "pub",
     "parking": true
   }
 ]
