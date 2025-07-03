@@ -2,142 +2,142 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Pool Halls in Ireland</title>
+  <title>Ireland Cue Sport Venues</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Leaflet CSS -->
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin=""
   />
-  <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""
-  ></script>
+
+  <!-- MarkerCluster CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+  />
+
   <style>
     html, body {
-      height: 100%;
       margin: 0;
+      padding: 0;
+      height: 100%;
       font-family: sans-serif;
     }
     #map {
       height: 100%;
       width: 100%;
     }
-    #controls {
+    .filter {
       position: absolute;
       top: 10px;
       left: 10px;
       background: white;
       padding: 10px;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
       z-index: 1000;
     }
     #venueCount {
       font-weight: bold;
-      margin-top: 8px;
-    }
-    #searchInput {
-      margin-bottom: 5px;
-      width: 100%;
-    }
-    #resetBtn {
       margin-top: 5px;
-      width: 100%;
     }
   </style>
 </head>
 <body>
-  <div id="controls">
+  <div class="filter">
     <input type="text" id="searchInput" placeholder="Search by name..." />
+    <br />
     <label for="categoryFilter">Filter by category:</label>
     <select id="categoryFilter">
       <option value="All">All</option>
     </select>
-    <button id="resetBtn">Reset View</button>
-    <div id="venueCount">Showing 0 venues</div>
+    <br />
+    <button onclick="resetView()">Reset View</button>
+    <div id="venueCount"></div>
   </div>
   <div id="map"></div>
 
-  <script>
-    const map = L.map('map').setView([53.4, -7.8], 7);
-    const defaultView = map.getBounds();
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin="">
+  </script>
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
+  <!-- MarkerCluster plugin -->
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+  <script>
+    const map = L.map("map").setView([53.4, -7.6], 7);
+    const initialBounds = map.getBounds();
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    const markers = [];
-    let allData = [];
+    let markers = L.markerClusterGroup();
+    let allMarkers = [];
 
-    const customIcon = L.icon({
-      iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-      iconSize: [30, 48],
-      iconAnchor: [15, 48],
-      popupAnchor: [0, -40]
-    });
-
-    fetch('ireland_pool_halls.json')
-      .then(response => response.json())
+    fetch("ireland_pool_halls.json")
+      .then(res => res.json())
       .then(data => {
-        allData = data;
-        updateCategoryOptions(data);
-        renderMarkers(data);
+        const categories = new Set();
+
+        data.forEach(venue => {
+          const marker = L.marker(venue.coords).bindPopup(
+            `<strong>${venue.name}</strong><br>${venue.description}<br><em>${venue.address}</em>`
+          );
+          marker.venueData = venue;
+          markers.addLayer(marker);
+          allMarkers.push(marker);
+          categories.add(venue.category);
+        });
+
+        document.getElementById("venueCount").textContent = `Showing ${allMarkers.length} venues`;
+
+        const categoryFilter = document.getElementById("categoryFilter");
+        categories.forEach(cat => {
+          const option = document.createElement("option");
+          option.value = cat;
+          option.textContent = cat;
+          categoryFilter.appendChild(option);
+        });
+
+        map.addLayer(markers);
       });
 
-    function updateCategoryOptions(data) {
-      const categories = new Set(data.map(item => item.category));
-      const select = document.getElementById('categoryFilter');
-      categories.forEach(cat => {
-        const option = document.createElement('option');
-        option.value = cat;
-        option.textContent = cat;
-        select.appendChild(option);
+    function filterAndUpdate() {
+      const category = document.getElementById("categoryFilter").value;
+      const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+
+      markers.clearLayers();
+      let visibleCount = 0;
+
+      allMarkers.forEach(marker => {
+        const { name, category: cat } = marker.venueData;
+        if ((category === "All" || cat === category) && name.toLowerCase().includes(searchTerm)) {
+          markers.addLayer(marker);
+          visibleCount++;
+        }
       });
+
+      document.getElementById("venueCount").textContent = `Showing ${visibleCount} venues`;
     }
 
-    function renderMarkers(data) {
-      markers.forEach(marker => map.removeLayer(marker));
-      markers.length = 0;
+    document.getElementById("categoryFilter").addEventListener("change", filterAndUpdate);
+    document.getElementById("searchInput").addEventListener("input", filterAndUpdate);
 
-      data.forEach(item => {
-        const marker = L.marker(item.coords, { icon: customIcon });
-        marker.bindPopup(`<b>${item.name}</b><br>${item.description}<br><em>${item.address}</em>`);
-        marker.addTo(map);
-        markers.push(marker);
-      });
-
-      document.getElementById('venueCount').textContent = `Showing ${data.length} venues`;
-    }
-
-    document.getElementById('categoryFilter').addEventListener('change', () => {
-      filterData();
-    });
-
-    document.getElementById('searchInput').addEventListener('input', () => {
-      filterData();
-    });
-
-    document.getElementById('resetBtn').addEventListener('click', () => {
-      document.getElementById('searchInput').value = '';
-      document.getElementById('categoryFilter').value = 'All';
-      renderMarkers(allData);
-      map.fitBounds(defaultView);
-    });
-
-    function filterData() {
-      const category = document.getElementById('categoryFilter').value;
-      const search = document.getElementById('searchInput').value.toLowerCase();
-
-      const filtered = allData.filter(item => {
-        const matchesCategory = category === 'All' || item.category === category;
-        const matchesSearch = item.name.toLowerCase().includes(search);
-        return matchesCategory && matchesSearch;
-      });
-
-      renderMarkers(filtered);
+    function resetView() {
+      map.fitBounds(initialBounds);
+      document.getElementById("categoryFilter").value = "All";
+      document.getElementById("searchInput").value = "";
+      filterAndUpdate();
     }
   </script>
 </body>
