@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ireland Cue Sport Venues</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+
+  <!-- MarkerCluster CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+  />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: sans-serif;
+    }
+    #map {
+      height: 100%;
+      width: 100%;
+    }
+    .filter {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: white;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+    }
+    #venueCount {
+      font-weight: bold;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="filter">
+    <input type="text" id="searchInput" placeholder="Search by name..." />
+    <br />
+    <label for="categoryFilter">Filter by category:</label>
+    <select id="categoryFilter">
+      <option value="All">All</option>
+    </select>
+    <br />
+    <button onclick="resetView()">Reset View</button>
+    <div id="venueCount"></div>
+  </div>
+  <div id="map"></div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin="">
+  </script>
+
+  <!-- MarkerCluster plugin -->
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+  <script>
+    const map = L.map("map").setView([53.4, -7.6], 7);
+    const initialBounds = map.getBounds();
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    let markers = L.markerClusterGroup();
+    let allMarkers = [];
+
+    fetch("ireland_pool_halls.json")
+      .then(res => res.json())
+      .then(data => {
+        const categories = new Set();
+
+        data.forEach(venue => {
+          const marker = L.marker(venue.coords).bindPopup(
+            `<strong>${venue.name}</strong><br>${venue.description}<br><em>${venue.address}</em>`
+          );
+          marker.venueData = venue;
+          markers.addLayer(marker);
+          allMarkers.push(marker);
+          categories.add(venue.category);
+        });
+
+        document.getElementById("venueCount").textContent = `Showing ${allMarkers.length} venues`;
+
+        const categoryFilter = document.getElementById("categoryFilter");
+        categories.forEach(cat => {
+          const option = document.createElement("option");
+          option.value = cat;
+          option.textContent = cat;
+          categoryFilter.appendChild(option);
+        });
+
+        map.addLayer(markers);
+      });
+
+    function filterAndUpdate() {
+      const category = document.getElementById("categoryFilter").value;
+      const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+
+      markers.clearLayers();
+      let visibleCount = 0;
+
+      allMarkers.forEach(marker => {
+        const { name, category: cat } = marker.venueData;
+        if ((category === "All" || cat === category) && name.toLowerCase().includes(searchTerm)) {
+          markers.addLayer(marker);
+          visibleCount++;
+        }
+      });
+
+      document.getElementById("venueCount").textContent = `Showing ${visibleCount} venues`;
+    }
+
+    document.getElementById("categoryFilter").addEventListener("change", filterAndUpdate);
+    document.getElementById("searchInput").addEventListener("input", filterAndUpdate);
+
+    function resetView() {
+      map.fitBounds(initialBounds);
+      document.getElementById("categoryFilter").value = "All";
+      document.getElementById("searchInput").value = "";
+      filterAndUpdate();
+    }
+  </script>
+</body>
+</html>
