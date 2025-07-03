@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Pool & Snooker Halls in Ireland</title>
+  <title>Ireland Cue Sport Venues</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link
     rel="stylesheet"
@@ -58,7 +58,7 @@
 
     let markers = [];
 
-    fetch('250703_Halls.json')
+    fetch('ireland_pool_halls.json')
       .then(response => response.json())
       .then(data => {
         const categoryFilter = document.getElementById("categoryFilter");
